@@ -38,6 +38,10 @@
 ### Пошагово выполнить каждый пункт раздела "ход работы" с описанием и примерами реализации задач
 Ход работы:
 
+- Были успешно установлены необходимые пакеты (ML Agents, PyTorch) для запуска обучения. ![image](https://user-images.githubusercontent.com/103383207/205135414-e44c586c-a8ed-4722-9f97-0c4b9736128e.png)
+
+- Был добавлен Economic.yaml файл с содержанием ниже.
+
 ```cs
 
 default_settings: null
@@ -123,6 +127,20 @@ torch_settings:
 debug: false
 
 ```
+
+- Для оценки обучения был установлен TensorBoard. ![image](https://user-images.githubusercontent.com/103383207/205135789-f07976ac-70be-4740-aa9f-fce342b90c47.png)
+
+- Далее были изменены параметры yaml файла (batch_size, num_epoch, epsilon, lambd) для оценки изменений Cumulative Reward.
+
+batch_size = 3000. График ведет себя более линейно, однако Value Loss стремится не к нулю, а вверх. ![image](https://user-images.githubusercontent.com/103383207/205136250-4ec5faa5-be62-43c0-8d47-8c60c04522cc.png)
+
+batch_size = 250 ![image](https://user-images.githubusercontent.com/103383207/205136568-003f495d-f67c-492d-94be-7042a24e5ba6.png)
+
+lambd = 0.8. Никаких изменений в графике. ![image](https://user-images.githubusercontent.com/103383207/205136925-6b596a2a-4674-4514-a924-1db400641b71.png)
+
+epsilon = 0.1. Менее линейный график с резким скачком. ![image](https://user-images.githubusercontent.com/103383207/205137095-c1fbb9b5-9c18-4bf6-8f3f-6e57b4de4bfe.png)
+
+num_epoch = 2. График стал наиболее линейным. ![image](https://user-images.githubusercontent.com/103383207/205137248-b18470e6-0b67-4567-a612-41fc345b3304.png)
 
 ## Задание 2
 ### 
